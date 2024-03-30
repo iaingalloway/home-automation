@@ -1,0 +1,18 @@
+grafana:
+  grafana.ini:
+    auth.anonymous:
+      enabled: true
+      org_name: Main Org.
+      org_role: Viewer
+    auth:
+      disable_login_form: true
+  sidecar:
+    dashboards:
+      enabled: true
+      label: grafana-dashboard
+    datasources:
+      url: http://kube-prometheus-stack-prometheus.monitoring.svc.cluster.local:9090/
+
+prometheus:
+  prometheusSpec:
+    retentionSize: 1GB
